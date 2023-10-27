@@ -1,13 +1,16 @@
 package com.proyecto.votacion.Objetos;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
@@ -30,8 +33,8 @@ public class EstudianteObjeto {
     @Column(name = "estatus_voto", nullable = false, unique = false)
     private String estatus_voto;
 
-    
-    @ManyToOne(cascade = {CascadeType.REMOVE}, fetch = FetchType.EAGER)//  ---> me sirve para eliminar en la tabla foránea y en la tabla principal
+    @ManyToOne(cascade = { CascadeType.REMOVE }, fetch = FetchType.EAGER) // ---> me sirve para eliminar en la tabla
+                                                                          // foránea y en la tabla principal
     @JoinColumn(name = "informacion_personal_id_usuario", referencedColumnName = "id_usuario", nullable = true)
     private InfoUsuarioObjeto usuarioObjeto_estudiante;
 
@@ -39,4 +42,10 @@ public class EstudianteObjeto {
     @JsonIgnore
     private PlanillaObjeto planillaObjeto;
 
+    /* @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
+    @JoinTable(
+        name = "miembro", joinColumns = @JoinColumn(name = "estudiante_cta", referencedColumnName = "cta"),
+        inverseJoinColumns = @JoinColumn(name = "planilla_id_planilla", referencedColumnName = "id_planilla")
+    )
+    List<PlanillaObjeto> planillaObj; */
 }

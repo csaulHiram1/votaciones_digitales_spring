@@ -27,6 +27,7 @@ public class AdminControlador {
     @PostMapping(path = "/registrarAdmin", consumes =  MediaType.APPLICATION_FORM_URLENCODED_VALUE)
     public AdminObjeto registrarAdmin (AdminObjeto adminObjeto) {
         return adminServicio.registrarAdmin(adminObjeto);
+        
     } 
 
     @GetMapping("/obtenerAdmins")

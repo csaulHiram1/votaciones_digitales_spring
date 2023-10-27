@@ -1,12 +1,15 @@
 package com.proyecto.votacion.Objetos;
 
+
 import jakarta.persistence.FetchType;
+
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.Getter;
@@ -27,10 +30,10 @@ public class PlanillaObjeto {
     @Column(name = "votos", nullable = true, unique = false)
     private Integer votos;
 
-     @OneToOne(cascade = {CascadeType.REMOVE}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "estudiante_cta", referencedColumnName = "cta",
-    nullable = true)
+    @OneToOne(cascade = { CascadeType.REMOVE }, fetch = FetchType.EAGER)
+    @JoinColumn(name = "estudiante_cta", referencedColumnName = "cta", nullable = true)
     private EstudianteObjeto estudianteRepresentante;
-    
 
+   /*  @ManyToMany(mappedBy = "planillaObj") */
+   /*  java.util.List<EstudianteObjeto> estudiantePlanilla; */
 }

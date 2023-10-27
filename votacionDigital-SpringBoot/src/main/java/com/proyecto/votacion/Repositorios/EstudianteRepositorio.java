@@ -21,4 +21,6 @@ public interface EstudianteRepositorio extends JpaRepository<EstudianteObjeto, S
     ArrayList<EstudianteObjeto> faltantesVotar();
 
 
+    
+
 }

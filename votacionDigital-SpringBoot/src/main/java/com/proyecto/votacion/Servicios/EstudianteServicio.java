@@ -59,4 +59,12 @@ public class EstudianteServicio {
     public ArrayList<EstudianteObjeto> faltantesVotar() {
         return estudianteRepositorio.faltantesVotar();
     }
+
+    public EstudianteObjeto registrarMiembro(EstudianteObjeto estudianteObj) {
+        if (estudianteRepositorio.existsById(estudianteObj.getCta())) {
+            return estudianteObj;
+        } else {
+            return estudianteRepositorio.save(estudianteObj);
+        }
+    }
 }

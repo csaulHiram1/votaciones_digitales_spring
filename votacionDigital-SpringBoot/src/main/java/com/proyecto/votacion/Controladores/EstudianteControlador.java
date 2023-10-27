@@ -64,4 +64,5 @@ public class EstudianteControlador {
     public ArrayList<EstudianteObjeto> getEstudiantesVoto() {
         return estudianteServicio.faltantesVotar();
     }
+
 }

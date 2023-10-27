@@ -18,7 +18,6 @@ public class PlanillaServicio {
     PlanillaObjeto planillaObjeto = new PlanillaObjeto();
 
     public PlanillaObjeto registrarPlanilla(PlanillaObjeto planillaData) {
-
         if (planillaRepositorio.existsById(planillaData.getId_planilla())) {
             return planillaObjeto;
         } else {
@@ -49,5 +48,10 @@ public class PlanillaServicio {
         votos++;
 
         planillaRepositorio.votarPlanillaRepo(votos, id_planilla);
+    }
+
+    public PlanillaObjeto registrarMiembro(PlanillaObjeto miembro) {
+       /*  System.out.println(miembro); */
+        return miembro;
     }
 }
